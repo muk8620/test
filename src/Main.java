@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +8,8 @@ public class Main {
 		System.out.println("== 프로그램 시작 ==");
 		
 		Scanner sc = new Scanner(System.in);
+		
+		List<Article> articles = new ArrayList<>();
 		
 		int id = 1;
 		
@@ -31,13 +35,16 @@ public class Main {
 				System.out.printf("내용 : ");
 				String body = sc.nextLine().trim();
 				
+				Article article = new Article(id, title, body);
+				articles.add(article);
+				
 				System.out.println(id + "번 글이 생성되었습니다");
 				id++;
 				
 			} else {
+			
 				System.out.println("존재하지 않는 명령어 입니다");
 			}
-			
 			
 			
 		}
@@ -47,3 +54,26 @@ public class Main {
 		System.out.println("== 프로그램 끝 ==");
 	}
 }
+
+class Article {
+	int id;
+	String title;
+	String body;
+	
+	Article(int id, String title, String body) {
+		this.id = id;
+		this.title = title;
+		this.body = body;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
